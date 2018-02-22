@@ -1,0 +1,37 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+
+    working_directory: ~/Backend-Starter-Kit
+
+    branches:
+      only:
+        - master
+
+    steps:
+      - checkout
+
+      - setup_remote_docker
+
+      - run:
+          name: Start up containers
+          command: docker-compose up -d
+
+      - run:
+          name: Build the application
+          command: docker-compose exec app yarn build
+
+      - run:
+          name: Test the application
+          command: |
+            docker-compose exec app yarn test
+            docker-compose exec app yarn codecov --token=${CODECOV_TOKEN}
+
+      - deploy:
+          name: Deploy the application
+          command: |
+            docker-compose exec app bash -c "cd functions && yarn install"
+            docker-compose exec app yarn deploy -- --token ${FIREBASE_TOKEN}

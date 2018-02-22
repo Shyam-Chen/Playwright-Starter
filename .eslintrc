@@ -1,0 +1,34 @@
+{
+  "plugins": [],
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true
+  },
+  "globals": {},
+  "extends": "airbnb-base",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    // Plugins
+    "import/prefer-default-export": "off"
+
+    // Possible Errors
+
+    // Best Practices
+
+    // Variables
+
+    // no-restricted-globals
+
+    // Node.js and CommonJS
+
+    // Stylistic Issues
+
+    // JS.Next
+
+  }
+}

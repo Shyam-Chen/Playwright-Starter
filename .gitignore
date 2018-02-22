@@ -1,0 +1,5 @@
+node_modules
+npm
+functions
+coverage
+*.log

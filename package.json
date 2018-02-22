@@ -1,0 +1,54 @@
+{
+  "name": "Firebase-Functions-Starter",
+  "version": "1.0.0",
+  "description": "A boilerplate for Functions, Firebase, Cloud, Serverless, Rollup, and Babel.",
+  "main": "index.js",
+  "scripts": {
+    "start": "rollup -c -w",
+    "build": "rollup -c",
+    "test": "jest \"test/.*\\.js$\" --coverage --forceExit",
+    "deploy": "firebase deploy --only functions",
+    "flow": "flow",
+    "typed": "flow-typed install",
+    "codecov": "codecov",
+    "firebase": "firebase",
+    "prestart": "rimraf functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shyam-Chen/Firebase-Functions-Starter.git"
+  },
+  "keywords": [
+    "Functions"
+  ],
+  "author": "Yen-cheng Chen, 陳彥澄",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shyam-Chen/Firebase-Functions-Starter/issues"
+  },
+  "homepage": "https://github.com/Shyam-Chen/Firebase-Functions-Starter#readme",
+  "dependencies": {
+    "cors": "2.8.4",
+    "express": "4.16.2",
+    "firebase-admin": "5.9.0",
+    "firebase-functions": "0.8.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "8.2.1",
+    "babel-jest": "22.1.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-flow": "6.23.0",
+    "codecov": "3.0.0",
+    "eslint": "4.18.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.9.0",
+    "firebase-tools": "3.16.0",
+    "flow-bin": "0.63.1",
+    "flow-typed": "2.2.3",
+    "jest": "22.0.6",
+    "rimraf": "2.6.2",
+    "rollup": "0.56.2",
+    "rollup-plugin-buble": "0.18.0",
+    "rollup-plugin-copy": "0.2.3"
+  }
+}
