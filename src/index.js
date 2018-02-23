@@ -1,36 +1,22 @@
-import functions from 'firebase-functions';
-import admin from 'firebase-admin';
-// import express from 'express';
-// import cors from 'cors';
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 
-const cors = require('cors')({ origin: true });
+export const addMessage = functions.https.onRequest((req, res) => {
+  const original = req.query.text;
 
-// const foo = express();
-// const bar = express();
-
-// foo.get('/', ...);
-// bar.get('/', ...);
-
-/**
- * @example POST /addText?text=${text}
- */
-export const addText = functions.https.onRequest((req, res) => {
-  cors(req, res, () => {
-    const { text } = req.query;
-
-    admin.database()
-      .ref('/messages')
-      .push({ text })
-      .then(() => {
-        res.status(200).json({ message: 'Text saved.' });
-      });
-  });
+  admin.database()
+    .ref('/messages')
+    .push({ original })
+    .then((snapshot) => {
+      res.redirect(303, snapshot.ref);
+    });
 });
 
-// /foo
-// export const foo = functions.https.onRequest(foo);
+export const makeUppercase = functions.database.ref('/messages/{pushId}/original').onWrite((event) => {
+  const original = event.data.val();
+  const uppercase = original.toUpperCase();
 
-// /bar
-// export const bar = functions.https.onRequest(bar);
+  return event.data.ref.parent.child('uppercase').set(uppercase);
+});
