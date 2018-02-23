@@ -1,6 +1,6 @@
 # Firebase Functions Starter
 
-:fire: A boilerplate for :star2: Functions :star2:, Firebase, Cloud, Serverless, Rollup, and Babel.
+:fire: A boilerplate for Node.js, Cloud, Firebase, Functions, FaaS, Serverless, Rollup, and Babel.
 
 [![Build Status](https://img.shields.io/circleci/project/Shyam-Chen/Firebase-Functions-Starter/master.svg)](https://circleci.com/gh/Shyam-Chen/Firebase-Functions-Starter)
 [![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Firebase-Functions-Starter/master.svg)](https://codecov.io/gh/Shyam-Chen/Firebase-Functions-Starter)

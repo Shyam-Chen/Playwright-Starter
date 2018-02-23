@@ -1,7 +1,7 @@
 {
   "name": "Firebase-Functions-Starter",
   "version": "1.0.0",
-  "description": "A boilerplate for Functions, Firebase, Cloud, Serverless, Rollup, and Babel.",
+  "description": "A boilerplate for Node.js, Cloud, Firebase, Functions, FaaS, Serverless, Rollup, and Babel.",
   "main": "index.js",
   "scripts": {
     "start": "rollup -c -w",
