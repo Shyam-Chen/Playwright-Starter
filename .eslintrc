@@ -14,7 +14,7 @@
   },
   "rules": {
     // Plugins
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
 
     // Possible Errors
 
@@ -27,6 +27,7 @@
     // Node.js and CommonJS
 
     // Stylistic Issues
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
 
     // JS.Next
 

@@ -1,6 +1,6 @@
 FROM buildpack-deps:jessie
 
-ENV HOME /Frontend-Starter-Kit
+ENV HOME /Firebase-Functions-Starter
 
 WORKDIR ${HOME}
 ADD . $HOME

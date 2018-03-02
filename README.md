@@ -47,5 +47,6 @@ $ yarn test
 6. Deploy the Application
 
 ```bash
-$ yarn deploy
+$ yarn firebase use <PROJECT_ENV>
+$ yarn firebase deploy --only functions
 ```
