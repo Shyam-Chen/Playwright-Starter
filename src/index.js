@@ -74,8 +74,12 @@ const app = express();
 
 app.use(cors({ origin: true }));
 
-app.get('/', (req, res) => {
+app.get('/hello-world', (req, res) => {
   res.status(200).send('Hello, World!');
 });
 
+/**
+ * @name hello-api
+ * @example https://us-central1-web-go-demo.cloudfunctions.net/api/hello-world
+ */
 export const api = functions.https.onRequest(app);
