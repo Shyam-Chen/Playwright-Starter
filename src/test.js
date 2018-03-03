@@ -9,7 +9,30 @@ functions.config = jest.fn(() => ({
   },
 }));
 
-const { addMessage, makeUppercase } = require('./');
+const { helloWorld, addMessage, makeUppercase } = require('./');
+
+describe('helloWorld', () => {
+  it('returns a string', (done) => {
+    const mockRequest = {
+      method: 'GET',
+    };
+
+    const mockResponse = {
+      status: (code) => {
+        expect(code).toEqual(200);
+
+        return {
+          send: jest.fn((message) => {
+            expect(message).toBe('Hello, World!');
+            done();
+          }),
+        };
+      },
+    };
+
+    helloWorld(mockRequest, mockResponse);
+  });
+});
 
 describe('addMessage', () => {
   it('returns a 303 redirect', (done) => {

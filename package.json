@@ -6,9 +6,8 @@
   "scripts": {
     "start": "rollup -c -w",
     "build": "rollup -c",
-    "test": "jest \"test/.*\\.js$\" --coverage --forceExit",
+    "test": "jest --coverage --forceExit",
     "deploy": "firebase deploy --only functions",
-    "flow": "flow",
     "typed": "flow-typed install",
     "codecov": "codecov",
     "firebase": "firebase",

@@ -3,6 +3,10 @@ const admin = require('firebase-admin');
 
 admin.initializeApp(functions.config().firebase);
 
+export const helloWorld = functions.https.onRequest((req, res) => {
+  res.status(200).send('Hello, World!');
+});
+
 export const addMessage = functions.https.onRequest((req, res) => {
   const original = req.query.text;
 
