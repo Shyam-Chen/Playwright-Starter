@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
+import textList from './text-list';
+
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
@@ -73,6 +75,8 @@ export const makeUppercase = functions.database
 const app = express();
 
 app.use(cors({ origin: true }));
+
+app.use('/text-list', textList);
 
 app.get('/hello-world', (req, res) => {
   res.status(200).send('Hello, World!');
