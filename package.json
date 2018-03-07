@@ -30,7 +30,8 @@
     "cors": "2.8.4",
     "express": "4.16.2",
     "firebase-admin": "5.9.0",
-    "firebase-functions": "0.8.1"
+    "firebase-functions": "0.8.1",
+    "rxjs": "5.5.6"
   },
   "devDependencies": {
     "babel-eslint": "8.2.2",
@@ -48,6 +49,7 @@
     "rimraf": "2.6.2",
     "rollup": "0.56.2",
     "rollup-plugin-buble": "0.19.2",
-    "rollup-plugin-copy": "0.2.3"
+    "rollup-plugin-copy": "0.2.3",
+    "supertest": "3.0.0"
   }
 }
