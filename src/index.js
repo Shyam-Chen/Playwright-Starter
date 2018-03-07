@@ -1,3 +1,8 @@
+/**
+ * @const {string} API_URL
+ * https://us-central1-web-go-demo.cloudfunctions.net
+ */
+
 import express from 'express';
 import cors from 'cors';
 
@@ -10,7 +15,7 @@ admin.initializeApp(functions.config().firebase);
 
 /**
  * @name hello-world
- * @example https://us-central1-web-go-demo.cloudfunctions.net/helloWorld
+ * @example /helloWorld
  */
 export const helloWorld = functions.https
   .onRequest((req, res) => {
@@ -19,7 +24,7 @@ export const helloWorld = functions.https
 
 /**
  * @name admin
- * @example https://us-central1-web-go-demo.cloudfunctions.net/addMessage?text=${text}
+ * @example /addMessage?text=${text}
  */
 export const addMessage = functions.https
   .onRequest((req, res) => {
@@ -35,7 +40,7 @@ export const addMessage = functions.https
 
 /**
  * @name realtime-database
- * @example original -> uppercase
+ * @example messages: original -> uppercase
  */
 export const makeUppercase = functions.database
   .ref('/messages/{pushId}/original')
@@ -60,14 +65,17 @@ export const makeUppercase = functions.database
 /**
  * @name cloud-storage
  */
+// ...
 
 /**
  * @name authentication
  */
+// ...
 
 /**
  * @name cloud-pub-sub
  */
+// ...
 
 /**
  * @name api-server
@@ -76,14 +84,19 @@ const app = express();
 
 app.use(cors({ origin: true }));
 
-app.use('/text-list', textList);
-
+/**
+ * @example GET /api/hello-world
+ */
 app.get('/hello-world', (req, res) => {
   res.status(200).send('Hello, World!');
 });
 
 /**
- * @name hello-api
- * @example https://us-central1-web-go-demo.cloudfunctions.net/api/hello-world
+ * @example GET /api/text-list
+ */
+app.use('/text-list', textList);
+
+/**
+ * @name api-root
  */
 export const api = functions.https.onRequest(app);
