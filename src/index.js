@@ -4,6 +4,7 @@
  */
 
 import express from 'express';
+import mongoose from 'mongoose';
 import cors from 'cors';
 
 import textList from './text-list';
@@ -91,12 +92,13 @@ app.get('/hello-world', (req, res) => {
   res.status(200).send('Hello, World!');
 });
 
-/**
- * @example GET /api/text-list
- */
 app.use('/text-list', textList);
 
 /**
  * @name api-root
  */
 export const api = functions.https.onRequest(app);
+
+mongoose.connect('mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo');
+mongoose.connection.once('open', () => console.log(' [*] Mongo: Connection Succeeded.'));
+mongoose.connection.on('error', err => console.error(err));
