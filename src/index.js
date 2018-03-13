@@ -99,6 +99,8 @@ app.use('/text-list', textList);
  */
 export const api = functions.https.onRequest(app);
 
-mongoose.connect('mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo');
+export const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://web-go-user:web-go-user@ds133961.mlab.com:33961/web-go-demo';
+
+mongoose.connect(MONGODB_URI);
 mongoose.connection.once('open', () => console.log(' [*] Mongo: Connection Succeeded.'));
 mongoose.connection.on('error', err => console.error(err));

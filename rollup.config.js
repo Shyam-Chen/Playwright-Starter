@@ -12,7 +12,7 @@ export default {
   ],
   plugins: [
     babel({ exclude: 'node_modules/**' }),
-    uglify(),
+    // uglify(),
     copy({ 'package.json': 'functions/package.json', verbose: true }),
   ],
   external: Object.keys(pkg.dependencies),

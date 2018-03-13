@@ -4,14 +4,12 @@
   "description": "A boilerplate for Node.js, Cloud, Firebase, Functions, FaaS, Serverless, Rollup, and Babel.",
   "main": "index.js",
   "scripts": {
-    "start": "rollup -c -w",
-    "build": "rollup -c",
-    "test": "jest --coverage --forceExit",
-    "deploy": "firebase deploy --only functions",
+    "start": "cross-env BABEL_ENV=build rollup -c -w",
+    "build": "cross-env BABEL_ENV=build rollup -c",
+    "test": "cross-env BABEL_ENV=test jest --coverage --forceExit",
     "typed": "flow-typed install",
     "codecov": "codecov",
-    "firebase": "firebase",
-    "prestart": "rimraf functions"
+    "firebase": "firebase"
   },
   "repository": {
     "type": "git",
@@ -40,6 +38,7 @@
     "babel-preset-env": "1.6.1",
     "babel-preset-flow": "6.23.0",
     "codecov": "3.0.0",
+    "cross-env": "5.1.4",
     "eslint": "4.18.1",
     "eslint-config-airbnb": "16.1.0",
     "eslint-plugin-import": "2.9.0",
@@ -47,7 +46,6 @@
     "flow-bin": "0.66.0",
     "flow-typed": "2.3.0",
     "jest": "22.4.1",
-    "rimraf": "2.6.2",
     "rollup": "0.56.2",
     "rollup-plugin-babel": "3.0.3",
     "rollup-plugin-copy": "0.2.3",
