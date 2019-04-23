@@ -1,5 +1,7 @@
 {
-  "plugins": [],
+  "extends": [
+    "eslint:recommended"
+  ],
   "env": {
     "node": true,
     "commonjs": true,
@@ -7,30 +9,13 @@
     "jest": true
   },
   "globals": {},
-  "extends": "airbnb-base",
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module"
   },
+  "plugins": [],
   "rules": {
-    // Plugins
-    "import/prefer-default-export": "off",
-
-    // Possible Errors
-
-    // Best Practices
-
-    // Variables
-
-    // no-restricted-globals
-
-    // Node.js and CommonJS
-
-    // Stylistic Issues
-    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-underscore-dangle": "off",
-
-    // JS.Next
-
-  }
+    "no-console": 0
+  },
+  "settings": {}
 }

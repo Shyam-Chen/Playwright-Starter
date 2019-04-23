@@ -1,55 +1,29 @@
 {
-  "name": "Firebase-Functions-Starter",
+  "name": "puppeteer-play",
   "version": "1.0.0",
-  "description": "A boilerplate for Node.js, Cloud, Firebase, Functions, FaaS, Serverless, Rollup, and Babel.",
-  "main": "index.js",
+  "description": "",
   "scripts": {
-    "start": "cross-env BABEL_ENV=build rollup -c -w",
-    "build": "cross-env BABEL_ENV=build rollup -c",
-    "test": "cross-env BABEL_ENV=test jest --coverage --forceExit",
-    "typed": "flow-typed install",
-    "codecov": "codecov",
-    "firebase": "firebase"
+    "lint": "eslint 'test/**/*.js'",
+    "ui": "jest \"ui/.*\\.js$\" --setupTestFrameworkScriptFile=./ui/setup-test.js",
+    "api": "jest \"api/.*\\.js$\" --setupTestFrameworkScriptFile=./api/setup-test.js",
+    "bench": "node -r esm benchmark/default.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shyam-Chen/Firebase-Functions-Starter.git"
+    "url": "git+https://github.com/Shyam-Chen/Puppeteer-Play.git"
   },
-  "keywords": [
-    "Functions"
-  ],
-  "author": "Yen-cheng Chen, 陳彥澄",
+  "author": "Shyam Chen",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Shyam-Chen/Firebase-Functions-Starter/issues"
-  },
-  "homepage": "https://github.com/Shyam-Chen/Firebase-Functions-Starter#readme",
-  "dependencies": {
-    "cors": "2.8.4",
-    "express": "4.16.2",
-    "firebase-admin": "5.9.0",
-    "firebase-functions": "0.8.1",
-    "mongoose": "5.0.10",
-    "rxjs": "5.5.6"
-  },
   "devDependencies": {
-    "babel-eslint": "8.2.2",
-    "babel-jest": "22.4.1",
-    "babel-preset-env": "1.6.1",
-    "babel-preset-flow": "6.23.0",
-    "codecov": "3.0.0",
-    "cross-env": "5.1.4",
-    "eslint": "4.18.1",
-    "eslint-config-airbnb": "16.1.0",
-    "eslint-plugin-import": "2.9.0",
-    "firebase-tools": "3.17.4",
-    "flow-bin": "0.66.0",
-    "flow-typed": "2.3.0",
-    "jest": "22.4.1",
-    "rollup": "0.56.2",
-    "rollup-plugin-babel": "3.0.3",
-    "rollup-plugin-copy": "0.2.3",
-    "rollup-plugin-uglify": "3.0.0",
-    "supertest": "3.0.0"
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "autocannon": "^3.2.1",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "eslint": "^5.14.1",
+    "esm": "^3.2.20",
+    "jest": "^24.1.0",
+    "puppeteer": "^1.12.2",
+    "supertest": "^4.0.2"
   }
 }

@@ -1,52 +1,51 @@
-# Firebase Functions Starter
-
-:fire: A boilerplate for Node.js, Cloud, Firebase, Functions, FaaS, Serverless, Rollup, and Babel.
-
-[![Build Status](https://img.shields.io/circleci/project/Shyam-Chen/Firebase-Functions-Starter/master.svg)](https://circleci.com/gh/Shyam-Chen/Firebase-Functions-Starter)
-[![Coverage Status](https://img.shields.io/codecov/c/github/Shyam-Chen/Firebase-Functions-Starter/master.svg)](https://codecov.io/gh/Shyam-Chen/Firebase-Functions-Starter)
- //
-[![dependencies Status](https://david-dm.org/Shyam-Chen/Firebase-Functions-Starter/status.svg)](https://david-dm.org/Shyam-Chen/Firebase-Functions-Starter)
-[![devDependencies Status](https://david-dm.org/Shyam-Chen/Firebase-Functions-Starter/dev-status.svg)](https://david-dm.org/Shyam-Chen/Firebase-Functions-Starter?type=dev)
+# Puppeteer Play
 
 ## Getting Started
 
-1. Clone this Boilerplate
+Follow steps to execute this boilerplate.
+
+1. Clone this boilerplate
 
 ```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/Firebase-Functions-Starter.git <PROJECT_NAME>
+$ git clone --depth 1 https://github.com/Shyam-Chen/Puppeteer-Play.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 
-2. Install Dependencies
+2. Install dependencies
 
 ```bash
 $ yarn install
-
-# then install types
-$ yarn typed
 ```
 
-3. Run the Application
+3. Check code quality
 
 ```bash
-$ yarn start
+$ yarn lint
 ```
 
-4. Build the Application
+4. Runs ui tests
 
 ```bash
-$ yarn build
+$ yarn ui
 ```
 
-5. Test the Application
+5. Runs api tests
 
 ```bash
-$ yarn test
+$ yarn api
 ```
 
-6. Deploy the Application
+6. Runs benchmarks
 
 ```bash
-$ yarn firebase use <PROJECT_ENV>
-$ yarn firebase deploy --only functions
+$ yarn bench
 ```
+
+## Play Station
+
+Develop, test, deploy, and scale web apps in the happy way.
+
+* [Vue-Play](https://github.com/Shyam-Chen/Vue-Play) - Front-end Web Developer
+* [Fastify-Play](https://github.com/Shyam-Chen/Fastify-Play) - Back-end Web Developer
+* [Puppeteer-Play](https://github.com/Shyam-Chen/Puppeteer-Play) - Quality Assurance Web Tester
+* [Kubernetes-Play](https://github.com/Shyam-Chen/Kubernetes-Play) - Web Site Reliability Operator

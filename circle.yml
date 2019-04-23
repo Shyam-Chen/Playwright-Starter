@@ -1,44 +1,29 @@
 version: 2
 
+base: &base
+  working_directory: ~/Puppeteer-Play
+  docker:
+    - image: circleci/node:10
+
 jobs:
 
-  build:
-    docker:
-      - image: circleci/node:8
-
-    working_directory: ~/Firebase-Functions-Starter
-
+  test:
+    <<: *base
     steps:
       - checkout
-
       - setup_remote_docker
-
       - run:
-          name: Start up containers
-          command: docker-compose up -d
-
+          name: Combat preparation
+          command: docker-compose up -d default
       - run:
-          name: Build the application
-          command: docker-compose exec app yarn build
-
+          name: Check code quality
+          command: docker-compose exec default yarn lint
       - run:
-          name: Test the application
-          command: |
-            docker-compose exec app yarn test
-            docker-compose exec app yarn codecov --token=${CODECOV_TOKEN}
+          name: Runs end-to-end tests
+          command: docker-compose exec default yarn test
 
-      - run:
-          name: Deploy the application
-          command: |
-            docker-compose exec app bash -c "cd functions && yarn install"
-
-            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              docker-compose exec app yarn firebase use default --token ${FIREBASE_TOKEN}
-              docker-compose exec app yarn firebase deploy --only functions --token ${FIREBASE_TOKEN}
-            elif [ "${CIRCLE_BRANCH}" == "staging" ]; then
-              docker-compose exec app yarn firebase use staging --token ${FIREBASE_TOKEN}
-              docker-compose exec app yarn firebase deploy --only functions --token ${FIREBASE_TOKEN}
-            elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-              docker-compose exec app yarn firebase use production --token ${FIREBASE_TOKEN}
-              docker-compose exec app yarn firebase deploy --only functions --token ${FIREBASE_TOKEN}
-            fi
+workflows:
+  version: 2
+  e2e-testing:
+    jobs:
+      - test
