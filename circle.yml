@@ -19,8 +19,14 @@ jobs:
           name: Check code quality
           command: docker-compose exec default yarn lint
       - run:
-          name: Runs end-to-end tests
-          command: docker-compose exec default yarn test
+          name: Runs ui tests
+          command: docker-compose exec default yarn ui
+      - run:
+          name: Runs api tests
+          command: docker-compose exec default yarn api
+      - run:
+          name: Runs benchmarks
+          command: docker-compose exec default yarn bench
 
 workflows:
   version: 2

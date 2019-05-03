@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint 'test/**/*.js'",
+    "lint": "eslint 'ui/**/*.js' 'api/**/*.js' 'benchmark/**/*.js'",
     "ui": "jest \"ui/.*\\.js$\" --setupTestFrameworkScriptFile=./ui/setup-test.js",
     "api": "jest \"api/.*\\.js$\" --setupTestFrameworkScriptFile=./api/setup-test.js",
     "bench": "node -r esm benchmark/default.js"
@@ -16,12 +16,12 @@
   "license": "MIT",
   "dependencies": {
     "autocannon": "^3.2.1",
-    "puppeteer": "^1.14.0",
+    "puppeteer": "^1.15.0",
     "supertest": "^4.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.7.1",
     "eslint": "^5.16.0",
