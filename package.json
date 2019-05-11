@@ -5,8 +5,11 @@
   "scripts": {
     "lint": "eslint 'ui/**/*.js' 'api/**/*.js' 'benchmark/**/*.js'",
     "ui": "jest \"ui/.*\\.js$\" --setupTestFrameworkScriptFile=./ui/setup-test.js",
+    "ui:run": "jest --setupTestFrameworkScriptFile=./ui/setup-test.js",
     "api": "jest \"api/.*\\.js$\" --setupTestFrameworkScriptFile=./api/setup-test.js",
-    "bench": "node -r esm benchmark/default.js"
+    "api:run": "jest --setupTestFrameworkScriptFile=./api/setup-test.js",
+    "bench": "node -r esm benchmark/default.js",
+    "bench:run": "node -r esm"
   },
   "repository": {
     "type": "git",

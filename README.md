@@ -27,16 +27,25 @@ $ yarn lint
 
 ```bash
 $ yarn ui
+
+# Or single execution of the specified file
+$ yarn ui:run ui/hello-world/hello-world.spec.js
 ```
 
 5. Runs api tests
 
 ```bash
 $ yarn api
+
+# Or single execution of the specified file
+$ yarn api:run api/hello-world/hello-world.spec.js
 ```
 
 6. Runs benchmarks
 
 ```bash
 $ yarn bench
+
+# Or single execution of the specified file
+$ yarn bench:run benchmark/default.js
 ```
