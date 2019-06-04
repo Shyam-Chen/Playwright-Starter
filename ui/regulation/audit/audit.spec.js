@@ -13,6 +13,6 @@ describe('Audit', () => {
   });
 
   it('should work', async () => {
-    await login(page);
+    await login.Admin(page);
   });
 });
