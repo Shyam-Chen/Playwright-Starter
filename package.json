@@ -18,8 +18,9 @@
   "author": "Shyam Chen",
   "license": "MIT",
   "dependencies": {
-    "autocannon": "^3.2.1",
-    "puppeteer": "^1.15.0",
+    "autocannon": "^4.0.0",
+    "axios": "^0.19.0",
+    "puppeteer": "^1.17.0",
     "supertest": "^4.0.2"
   },
   "devDependencies": {
