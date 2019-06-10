@@ -18,7 +18,9 @@ const instructor = async () => {
       {
         method: 'POST',
         path: '/training/instructors',
-        body: JSON.stringify([{"orgIds":[224],"code":null,"type":"_TRAINING_AE_1","employeeId":172,"name":"Summer Liu","status":"_SYS_A9_1"}]),
+        body: JSON.stringify([
+          { orgIds: [224], code: null, type: '_TRAINING_AE_1', employeeId: 172, name: 'Summer Liu', status: '_SYS_A9_1' },
+        ]),
       },
       {
         method: 'POST',
@@ -26,11 +28,11 @@ const instructor = async () => {
         body: JSON.stringify({
           pagingTool: { currentPage: 1, pageSize: 10 },
           queryCriterias: [
-            { connection: 'and', and: 'type', 'condition': 'in', 'value': '_TRAINING_AE_1,_TRAINING_AE_2,_TRAINING_AE_3', 'isValueADigital': false },
-            { connection: 'and', key: 'status', 'condition': 'in', 'value': '_SYS_A9_1,_SYS_A9_2', 'isValueADigital': false },
-            { connection: 'and (', key: 'name', 'condition': 'like', 'value': 'Summer', 'isValueADigital': false },
-            { connection: 'or', key: 'org_code', 'condition': 'like', 'value': 'Summer', 'isValueADigital': false },
-            { connection: 'or', key: 'org_name', 'condition': 'like', 'value': 'Summer', isValueADigital: false },
+            { connection: 'and', and: 'type', condition: 'in', value: '_TRAINING_AE_1,_TRAINING_AE_2,_TRAINING_AE_3', isValueADigital: false },
+            { connection: 'and', key: 'status', condition: 'in', value: '_SYS_A9_1,_SYS_A9_2', isValueADigital: false },
+            { connection: 'and (', key: 'name', condition: 'like', value: 'Summer', isValueADigital: false },
+            { connection: 'or', key: 'org_code', condition: 'like', value: 'Summer', isValueADigital: false },
+            { connection: 'or', key: 'org_name', condition: 'like', value: 'Summer', isValueADigital: false },
             { connection: ')', key: '', condition: '', value: '', isValueADigital: true },
           ],
           queryOrderBies: [{ columnName: 'id', orderType: 'desc' }],
