@@ -19,22 +19,23 @@ const instructor = async () => {
         method: 'POST',
         path: '/training/certifications/categories/list',
         body: JSON.stringify({
-          pagingTool: {"currentPage":1,"pageSize":10},"queryCriterias":[],
-          queryOrderBies: [{"columnName":"id","orderType":"desc"}]
+          pagingTool: { currentPage: 1, pageSize: 10 },
+          queryCriterias: [],
+          queryOrderBies: [{ columnName: 'id', orderType: 'desc' }],
         }),
       },
       {
         method: 'POST',
         path: '/training/certifications/categories/list',
         body: JSON.stringify({
-          "pagingTool":{"currentPage":1,"pageSize":10},
-          "queryCriterias":[
-            {"connection":"and","key":"company_id","condition":"=","value":"223","isValueADigital":false},
-            {"connection":"and (","key":"code","condition":"like","value":"270","isValueADigital":false},
-            {"connection":"or","key":"reminder_before_expiration","condition":"like","value":"270","isValueADigital":false},
-            {"connection":")","key":"","condition":"","value":"","isValueADigital":true}
+          pagingTool: { currentPage: 1, pageSize: 10 },
+          queryCriterias: [
+            { connection: 'and', key: 'company_id', condition: '=', value: '223', isValueADigital: false },
+            { connection: 'and (', key: 'code', condition: 'like', value: '270', isValueADigital: false },
+            { connection: 'or', key: 'reminder_before_expiration', condition: 'like', value: '270', isValueADigital: false },
+            { connection: ')', key: '', condition: '', value: '', isValueADigital: true },
           ],
-          "queryOrderBies":[{"columnName":"id","orderType":"desc"},
+          queryOrderBies: [{ columnName: 'id', orderType: 'desc' },
           ],
         }),
       },
