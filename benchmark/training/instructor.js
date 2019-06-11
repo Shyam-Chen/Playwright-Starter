@@ -18,14 +18,14 @@ const instructor = async () => {
     requests: [
       {
         method: 'POST',
-        path: '/training/instructors',
+        path: '/training/instructors', // 新增教師
         body: JSON.stringify([
           { orgIds: [224], code: null, type: '_TRAINING_AE_1', employeeId: 172, name: 'Summer Liu', status: '_SYS_A9_1' },
         ]),
       },
       {
         method: 'POST',
-        path: '/training/instructors/list',
+        path: '/training/instructors/list', // 搜尋教師
         body: JSON.stringify({
           pagingTool: { currentPage: 1, pageSize: 10 },
           queryCriterias: [
@@ -41,7 +41,7 @@ const instructor = async () => {
       },
       {
         method: 'DELETE',
-        path: '/training/instructors',
+        path: '/training/instructors', // 刪除教師
         body: JSON.stringify([99]),
       },
     ],
