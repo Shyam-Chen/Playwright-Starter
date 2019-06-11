@@ -17,7 +17,7 @@ const instructor = async () => {
     requests: [
       {
         method: 'POST',
-        path: '/training/certifications/categories/list',
+        path: '/training/certifications/categories/list', // 新增證書類別
         body: JSON.stringify({
           pagingTool: { currentPage: 1, pageSize: 10 },
           queryCriterias: [],
@@ -26,7 +26,7 @@ const instructor = async () => {
       },
       {
         method: 'POST',
-        path: '/training/certifications/categories/list',
+        path: '/training/certifications/categories/list', // 搜尋證書類別
         body: JSON.stringify({
           pagingTool: { currentPage: 1, pageSize: 10 },
           queryCriterias: [
@@ -41,7 +41,7 @@ const instructor = async () => {
       },
       {
         method: 'DELETE',
-        path: '/training/certifications/categories/',
+        path: '/training/certifications/categories/', // 刪除證書類別
         body: JSON.stringify([71]),
       },
     ],
