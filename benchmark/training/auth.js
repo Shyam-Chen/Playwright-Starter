@@ -1,11 +1,12 @@
 import autocannon from 'autocannon';
 
-import { API_URL, RUN_SPEC, report } from './core';
+import { report } from '../_utils';
+import { API_URL, RUN_SPEC } from './_env';
 
 const auth = async () => {
   await autocannon({
     ...RUN_SPEC,
-    title: 'POST /permissions/login',
+    title: 'auth',
     url: `${API_URL}/permissions/login`,
     method: 'POST',
     body: JSON.stringify({
