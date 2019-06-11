@@ -1,9 +1,10 @@
 import autocannon from 'autocannon';
 import axios from 'axios';
 
-import { API_URL, RUN_SPEC, report } from './core';
+import { report } from '../_utils';
+import { API_URL, RUN_SPEC } from './_env';
 
-const instructor = async () => {
+const certificateCategory = async () => {
   const login = await axios.post(`${API_URL}/permissions/login`, {
     userName: 'admin',
     password: 'test',
@@ -48,4 +49,4 @@ const instructor = async () => {
   }, report);
 };
 
-instructor();
+certificateCategory();
