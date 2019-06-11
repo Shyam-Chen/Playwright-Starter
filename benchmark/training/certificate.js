@@ -1,7 +1,8 @@
 import autocannon from 'autocannon';
 import axios from 'axios';
 
-import { API_URL, RUN_SPEC, report } from './core';
+import { report } from '../_utils';
+import { API_URL, RUN_SPEC } from './_env';
 
 const certificate = async () => {
   const login = await axios.post(`${API_URL}/permissions/login`, {
