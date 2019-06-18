@@ -4,7 +4,7 @@ import axios from 'axios';
 import { report } from '../_utils';
 import { API_URL, RUN_SPEC } from './_env';
 
-const certificateCategory = async () => {
+(async () => {
   const login = await axios.post(`${API_URL}/permissions/login`, {
     userName: 'admin',
     password: 'test',
@@ -67,6 +67,4 @@ const certificateCategory = async () => {
     },
     report,
   );
-};
-
-certificateCategory();
+})();

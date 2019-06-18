@@ -1,8 +1,7 @@
 {
   "extends": [
     "airbnb-base",
-    "prettier",
-    "prettier/babel"
+    "prettier"
   ],
   "env": {
     "node": true,
@@ -15,8 +14,11 @@
   "parserOptions": {
     "sourceType": "module"
   },
-  "plugins": [],
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
+    "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "no-console": "off",
     "object-curly-newline": ["error", { "consistent": true }]

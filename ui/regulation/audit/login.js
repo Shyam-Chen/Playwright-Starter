@@ -1,6 +1,7 @@
 const userNameTextField = '#mat-input-0';
 const passwordTextField = '#mat-input-1';
-const signInButton = '#m_login > div.m-grid__item.m-grid__item--fluid.m-grid__item--order-tablet-and-mobile-1.m-login__wrapper > div.m-login__body > m-login > div.m-login__action.m-login__action--fit > m-spinner-button > button > span > span';
+const signInButton =
+  '#m_login > div.m-grid__item.m-grid__item--fluid.m-grid__item--order-tablet-and-mobile-1.m-login__wrapper > div.m-login__body > m-login > div.m-login__action.m-login__action--fit > m-spinner-button > button > span > span';
 
 export default {
   // 系統管理者
