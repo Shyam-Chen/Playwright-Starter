@@ -4,16 +4,19 @@ import { report } from '../_utils';
 import { API_URL, RUN_SPEC } from './_env';
 
 const auth = async () => {
-  await autocannon({
-    ...RUN_SPEC,
-    title: 'auth',
-    url: `${API_URL}/permissions/login`,
-    method: 'POST',
-    body: JSON.stringify({
-      userName: 'admin',
-      password: 'test',
-    }),
-  }, report);
+  await autocannon(
+    {
+      ...RUN_SPEC,
+      title: 'auth',
+      url: `${API_URL}/permissions/login`,
+      method: 'POST',
+      body: JSON.stringify({
+        userName: 'admin',
+        password: 'test',
+      }),
+    },
+    report,
+  );
 };
 
 auth();
