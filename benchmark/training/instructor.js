@@ -40,6 +40,24 @@ const instructor = async () => {
         }),
       },
       {
+        method: 'GET',
+        path: '/training/instructors/103', // 檢視教師
+      },
+      {
+        method: 'PUT',
+        path: '/training/instructors', // 編輯教師
+        body: JSON.stringify(
+          [{
+            id: 103,
+            orgIds: [524],
+            code: 'TA2019000074',
+            type: '_TRAINING_AE_3',
+            name: 'ＱＡ測試-02',
+            status: '_SYS_A9_1',
+          }],
+        ),
+      },
+      {
         method: 'DELETE',
         path: '/training/instructors', // 刪除教師
         body: JSON.stringify([99]),

@@ -41,6 +41,21 @@ const certificateCategory = async () => {
         }),
       },
       {
+        method: 'PUT',
+        path: '/training/certifications/categories/', // 編輯證書類別
+        body: JSON.stringify({
+          id: 78,
+          companyId: 499,
+          remindUserIds: [],
+          code: '個資保護',
+          periodUnit: '_SYS_AW_5',
+          remindEmployee: true,
+          remindFacilityContact: false,
+          remindSupervisor: true,
+          reminderBeforeExpiration: 5,
+        }),
+      },
+      {
         method: 'DELETE',
         path: '/training/certifications/categories/', // 刪除證書類別
         body: JSON.stringify([71]),

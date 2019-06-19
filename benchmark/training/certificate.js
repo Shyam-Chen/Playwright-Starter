@@ -46,6 +46,37 @@ const certificate = async () => {
         }),
       },
       {
+        method: 'POST',
+        path: '/training/certifications/list/latest', // 檢視證書
+        body: JSON.stringify({
+          pagingTool: { currentPage: 1, pageSize: 50 },
+          queryCriterias: [
+            { connection: 'and', key: 'code', condition: 'like', value: '資訊倫理', isValueADigital: false },
+          ],
+          queryOrderBies: [
+            { columnName: 'code', orderType: 'desc' },
+          ],
+        }),
+      },
+      {
+        method: 'PＵT',
+        path: '/training/certifications', // 編輯證書
+        body: JSON.stringify({
+          id: 65,
+          certificationName: '乙級化學技術士',
+          certificationNumber: '00QAIR01',
+          licenseIssuingAgency: '勞動部勞動力發展署技能檢定中心',
+          renewalPeriod: 1,
+          renewalPeriodUnit: '_SYS_AW_5',
+          attachments: [{ fileId: '1585' }],
+          employeeId: '151',
+          categoryId: 40,
+          accreditationDate: '2018-04-10',
+          activationDate: '2019-06-21',
+          expirationDate: '2019-07-20',
+        }),
+      },
+      {
         method: 'DELETE',
         path: '/training/certifications', // 刪除證書
         body: JSON.stringify([120]),
