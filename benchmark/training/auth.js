@@ -3,7 +3,7 @@ import autocannon from 'autocannon';
 import { report } from '../_utils';
 import { API_URL, RUN_SPEC } from './_env';
 
-const auth = async () => {
+(async () => {
   await autocannon(
     {
       ...RUN_SPEC,
@@ -17,6 +17,4 @@ const auth = async () => {
     },
     report,
   );
-};
-
-auth();
+})();

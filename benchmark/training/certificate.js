@@ -4,7 +4,7 @@ import axios from 'axios';
 import { report } from '../_utils';
 import { API_URL, RUN_SPEC } from './_env';
 
-const certificate = async () => {
+(async () => {
   const login = await axios.post(`${API_URL}/permissions/login`, {
     userName: 'admin',
     password: 'test',
@@ -45,11 +45,15 @@ const certificate = async () => {
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 50 },
             queryCriterias: [
-              { connection: 'and', key: 'code', condition: 'like', value: '資訊倫理', isValueADigital: false },
+              {
+                connection: 'and',
+                key: 'code',
+                condition: 'like',
+                value: '資訊倫理',
+                isValueADigital: false,
+              },
             ],
-            queryOrderBies: [
-              { columnName: 'code', orderType: 'desc' },
-            ],
+            queryOrderBies: [{ columnName: 'code', orderType: 'desc' }],
           }),
         },
         {
@@ -79,6 +83,4 @@ const certificate = async () => {
     },
     report,
   );
-};
-
-certificate();
+})();

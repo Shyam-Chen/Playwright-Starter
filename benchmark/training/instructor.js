@@ -4,7 +4,7 @@ import axios from 'axios';
 import { report } from '../_utils';
 import { API_URL, RUN_SPEC } from './_env';
 
-const instructor = async () => {
+(async () => {
   const login = await axios.post(`${API_URL}/permissions/login`, {
     userName: 'admin',
     password: 'test',
@@ -84,16 +84,16 @@ const instructor = async () => {
         {
           method: 'PUT',
           path: '/training/instructors', // 編輯教師
-          body: JSON.stringify(
-            [{
+          body: JSON.stringify([
+            {
               id: 103,
               orgIds: [524],
               code: 'TA2019000074',
               type: '_TRAINING_AE_3',
               name: 'ＱＡ測試-02',
               status: '_SYS_A9_1',
-            }],
-          ),
+            },
+          ]),
         },
         {
           method: 'DELETE',
@@ -104,6 +104,4 @@ const instructor = async () => {
     },
     report,
   );
-};
-
-instructor();
+})();
