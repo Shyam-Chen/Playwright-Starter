@@ -47,6 +47,5 @@ $ yarn api:run api/hello-world/hello-world.spec.js
 $ yarn bench
 
 # Or single execution of the specified file
-$ yarn bench:run benchmark/audit.js  # performance
-$ yarn bench:run benchmark/load.js  # stress
+$ yarn bench:run benchmark/hello-world/hello-world.js
 ```

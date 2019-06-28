@@ -1,4 +1,5 @@
 import lighthouse from 'lighthouse';
+import autocannon from 'autocannon';
 
 lighthouse(
   'http://localhost:8000',
@@ -15,4 +16,14 @@ lighthouse(
       ],
     },
   },
+);
+
+autocannon(
+  {
+    url: 'http://localhost:3000',
+    connections: 10,
+    pipelining: 1,
+    duration: 10,
+  },
+  console.log,
 );
