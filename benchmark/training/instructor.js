@@ -17,9 +17,10 @@ import { API_URL, RUN_SPEC } from './_env';
       url: API_URL,
       headers: { token: login.data.DATA.token },
       requests: [
+        // 新增教師
         {
           method: 'POST',
-          path: '/training/instructors', // 新增教師
+          path: '/training/instructors',
           body: JSON.stringify([
             {
               orgIds: [224],
@@ -31,9 +32,10 @@ import { API_URL, RUN_SPEC } from './_env';
             },
           ]),
         },
+        // 搜尋教師
         {
           method: 'POST',
-          path: '/training/instructors/list', // 搜尋教師
+          path: '/training/instructors/list',
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryCriterias: [
@@ -72,18 +74,26 @@ import { API_URL, RUN_SPEC } from './_env';
                 value: 'Summer',
                 isValueADigital: false,
               },
-              { connection: ')', key: '', condition: '', value: '', isValueADigital: true },
+              {
+                connection: ')',
+                key: '',
+                condition: '',
+                value: '',
+                isValueADigital: true,
+              },
             ],
             queryOrderBies: [{ columnName: 'id', orderType: 'desc' }],
           }),
         },
+        // 檢視教師
         {
           method: 'GET',
-          path: '/training/instructors/103', // 檢視教師
+          path: '/training/instructors/103',
         },
+        // 編輯教師
         {
           method: 'PUT',
-          path: '/training/instructors', // 編輯教師
+          path: '/training/instructors',
           body: JSON.stringify([
             {
               id: 103,
@@ -95,9 +105,10 @@ import { API_URL, RUN_SPEC } from './_env';
             },
           ]),
         },
+        // 刪除教師
         {
           method: 'DELETE',
-          path: '/training/instructors', // 刪除教師
+          path: '/training/instructors',
           body: JSON.stringify([99]),
         },
       ],

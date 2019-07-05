@@ -17,9 +17,10 @@ import { API_URL, RUN_SPEC } from './_env';
       url: API_URL,
       headers: { token: login.data.DATA.token },
       requests: [
+        // 新增證書
         {
           method: 'POST',
-          path: '/training/certifications', // 新增證書
+          path: '/training/certifications',
           body: JSON.stringify({
             certificationName: 'test',
             certificationNumber: 'AAA-1234',
@@ -39,9 +40,10 @@ import { API_URL, RUN_SPEC } from './_env';
             expirationDate: null,
           }),
         },
+        // 檢視證書
         {
           method: 'POST',
-          path: '/training/certifications/list/latest', // 檢視證書
+          path: '/training/certifications/list/latest',
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 50 },
             queryCriterias: [
@@ -56,9 +58,10 @@ import { API_URL, RUN_SPEC } from './_env';
             queryOrderBies: [{ columnName: 'code', orderType: 'desc' }],
           }),
         },
+        // 編輯證書
         {
           method: 'PＵT',
-          path: '/training/certifications', // 編輯證書
+          path: '/training/certifications',
           body: JSON.stringify({
             id: 65,
             certificationName: '乙級化學技術士',
@@ -74,9 +77,10 @@ import { API_URL, RUN_SPEC } from './_env';
             expirationDate: '2019-07-20',
           }),
         },
+        // 刪除證書
         {
           method: 'DELETE',
-          path: '/training/certifications', // 刪除證書
+          path: '/training/certifications',
           body: JSON.stringify([120]),
         },
       ],

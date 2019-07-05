@@ -17,18 +17,20 @@ import { API_URL, RUN_SPEC } from './_env';
       url: API_URL,
       headers: { token: login.data.DATA.token },
       requests: [
+        // 新增證書類別
         {
           method: 'POST',
-          path: '/training/certifications/categories/list', // 新增證書類別
+          path: '/training/certifications/categories/list',
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryCriterias: [],
             queryOrderBies: [{ columnName: 'id', orderType: 'desc' }],
           }),
         },
+        // 搜尋證書類別
         {
           method: 'POST',
-          path: '/training/certifications/categories/list', // 搜尋證書類別
+          path: '/training/certifications/categories/list',
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryCriterias: [
@@ -64,9 +66,10 @@ import { API_URL, RUN_SPEC } from './_env';
             queryOrderBies: [{ columnName: 'id', orderType: 'desc' }],
           }),
         },
+        // 編輯證書類別
         {
           method: 'PUT',
-          path: '/training/certifications/categories/', // 編輯證書類別
+          path: '/training/certifications/categories/',
           body: JSON.stringify({
             id: 78,
             companyId: 499,
@@ -79,6 +82,7 @@ import { API_URL, RUN_SPEC } from './_env';
             reminderBeforeExpiration: 5,
           }),
         },
+        // 刪除證書類別
         {
           method: 'DELETE',
           path: '/training/certifications/categories/',

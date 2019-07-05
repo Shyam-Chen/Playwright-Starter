@@ -17,9 +17,10 @@ import { API_URL, RUN_SPEC } from './_env';
       url: API_URL,
       headers: { token: login.data.DATA.token },
       requests: [
+        // 新增科目
         {
           method: 'POST',
-          path: '/training/lessons', // 新增科目
+          path: '/training/lessons',
           body: JSON.stringify({
             name: '資安概論',
             types: ['_TRAINING_AD_1', '_TRAINING_AD_3'],
@@ -36,9 +37,10 @@ import { API_URL, RUN_SPEC } from './_env';
             prerequisiteIds: [77, 53, 34],
           }),
         },
+        // 搜尋科目
         {
           method: 'POST',
-          path: '/training/lessons/list', // 搜尋科目
+          path: '/training/lessons/list',
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryOrderBies: [{ columnName: 'code', orderType: 'asc' }],
@@ -60,13 +62,15 @@ import { API_URL, RUN_SPEC } from './_env';
             ],
           }),
         },
+        // 檢視科目
         {
           method: 'GET',
-          path: '/training/lessons/112', // 檢視科目
+          path: '/training/lessons/112',
         },
+        // 編輯科目
         {
           method: 'PUT',
-          path: '/training/lessons', // 編輯科目
+          path: '/training/lessons',
           body: JSON.stringify([
             {
               id: 111,
@@ -82,12 +86,12 @@ import { API_URL, RUN_SPEC } from './_env';
             },
           ]),
         },
-
         // 排課
 
+        // 刪除證書類別
         {
           method: 'DELETE',
-          path: '/training/certifications/categories/', // 刪除證書類別
+          path: '/training/certifications/categories/',
           body: JSON.stringify([71]),
         },
       ],
