@@ -101,25 +101,20 @@ export const report = (err, res) => {
     res['5xx'],
   ]);
 
+  const startTime = format(res.start, 'YYYY-MM-DD HH:mm:ss');
+  const finishTime = format(res.finish, 'YYYY-MM-DD HH:mm:ss');
+
   console.log();
 
   console.log(`# ${res.title}`);
   console.log(`URL: ${res.url}`);
 
   console.log(primaryTable.toString());
-
   console.log(percentileTable.toString());
-
   console.log(extrasTable.toString());
-
   console.log(non2xxTable.toString());
 
-  console.log(
-    `Time: ${format(res.start, 'YYYY-MM-DD HH:mm:ss')} ~ ${format(
-      res.finish,
-      'YYYY-MM-DD HH:mm:ss',
-    )}`,
-  );
+  console.log(`Time: ${startTime} ~ ${finishTime}`);
 
   console.log();
 };
