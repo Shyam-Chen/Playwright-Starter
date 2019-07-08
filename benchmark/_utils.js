@@ -28,6 +28,11 @@ const non2xxTable = new Table({
 export const report = (err, res) => {
   if (err) throw err;
 
+  primaryTable.splice(0, primaryTable.length);
+  percentileTable.splice(0, percentileTable.length);
+  extrasTable.splice(0, extrasTable.length);
+  non2xxTable.splice(0, non2xxTable.length);
+
   primaryTable.push(
     [
       'requests',
@@ -110,7 +115,7 @@ export const report = (err, res) => {
   console.log(`URL: ${res.url}`);
 
   console.log(primaryTable.toString());
-  console.log(percentileTable.toString());
+  // console.log(percentileTable.toString());
   console.log(extrasTable.toString());
   console.log(non2xxTable.toString());
 

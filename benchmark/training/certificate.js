@@ -60,7 +60,7 @@ import { API_URL, RUN_SPEC } from './_env';
         },
         // 編輯證書
         {
-          method: 'PＵT',
+          method: 'PUT',
           path: '/training/certifications',
           body: JSON.stringify({
             id: 65,
