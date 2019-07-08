@@ -1,26 +1,22 @@
 import autocannon from 'autocannon';
-import axios from 'axios';
 
 import { report } from '../_utils';
-import { API_URL, RUN_SPEC } from './_env';
+import { API_URL, API_PATH, RUN_SPEC, HEADERS_OPTS, LOGIN_FUNCS } from './_env';
 
 (async () => {
-  const login = await axios.post(`${API_URL}/permissions/login`, {
-    userName: 'admin',
-    password: 'test',
-  });
+  const token = await LOGIN_FUNCS.EHS();
 
   await autocannon(
     {
       ...RUN_SPEC,
       title: 'instructor',
       url: API_URL,
-      headers: { token: login.data.DATA.token },
+      headers: { ...HEADERS_OPTS, token },
       requests: [
         // 新增教師
         {
           method: 'POST',
-          path: '/training/instructors',
+          path: `${API_PATH}/training/instructors`,
           body: JSON.stringify([
             {
               orgIds: [224],
@@ -35,7 +31,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 搜尋教師
         {
           method: 'POST',
-          path: '/training/instructors/list',
+          path: `${API_PATH}/training/instructors/list`,
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryCriterias: [
@@ -88,12 +84,12 @@ import { API_URL, RUN_SPEC } from './_env';
         // 檢視教師
         {
           method: 'GET',
-          path: '/training/instructors/103',
+          path: `${API_PATH}/training/instructors/103`,
         },
         // 編輯教師
         {
           method: 'PUT',
-          path: '/training/instructors',
+          path: `${API_PATH}/training/instructors`,
           body: JSON.stringify([
             {
               id: 103,
@@ -108,7 +104,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 刪除教師
         {
           method: 'DELETE',
-          path: '/training/instructors',
+          path: `${API_PATH}/training/instructors`,
           body: JSON.stringify([99]),
         },
       ],

@@ -1,26 +1,22 @@
 import autocannon from 'autocannon';
-import axios from 'axios';
 
 import { report } from '../_utils';
-import { API_URL, RUN_SPEC } from './_env';
+import { API_URL, API_PATH, RUN_SPEC, HEADERS_OPTS, LOGIN_FUNCS } from './_env';
 
 (async () => {
-  const login = await axios.post(`${API_URL}/permissions/login`, {
-    userName: 'admin',
-    password: 'test',
-  });
+  const token = await LOGIN_FUNCS.EHS();
 
   await autocannon(
     {
       ...RUN_SPEC,
       title: 'training-calendar',
       url: API_URL,
-      headers: { token: login.data.DATA.token },
+      headers: { ...HEADERS_OPTS, token },
       requests: [
         // 所有課程
         {
           method: 'POST',
-          path: '/training/classes/new_calendar',
+          path: `${API_PATH}/training/classes/new_calendar`,
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10000 },
             queryCriterias: [

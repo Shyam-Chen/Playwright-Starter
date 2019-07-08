@@ -1,26 +1,22 @@
 import autocannon from 'autocannon';
-import axios from 'axios';
 
 import { report } from '../_utils';
-import { API_URL, RUN_SPEC } from './_env';
+import { API_URL, API_PATH, RUN_SPEC, HEADERS_OPTS, LOGIN_FUNCS } from './_env';
 
 (async () => {
-  const login = await axios.post(`${API_URL}/permissions/login`, {
-    userName: 'admin',
-    password: 'test',
-  });
+  const token = await LOGIN_FUNCS.EHS();
 
   await autocannon(
     {
       ...RUN_SPEC,
       title: 'lesson',
       url: API_URL,
-      headers: { token: login.data.DATA.token },
+      headers: { ...HEADERS_OPTS, token },
       requests: [
         // 新增科目
         {
           method: 'POST',
-          path: '/training/lessons',
+          path: `${API_PATH}/training/lessons`,
           body: JSON.stringify({
             name: '資安概論',
             types: ['_TRAINING_AD_1', '_TRAINING_AD_3'],
@@ -40,7 +36,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 搜尋科目
         {
           method: 'POST',
-          path: '/training/lessons/list',
+          path: `${API_PATH}/training/lessons/list`,
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryOrderBies: [{ columnName: 'code', orderType: 'asc' }],
@@ -65,12 +61,12 @@ import { API_URL, RUN_SPEC } from './_env';
         // 檢視科目
         {
           method: 'GET',
-          path: '/training/lessons/112',
+          path: `${API_PATH}/training/lessons/112`,
         },
         // 編輯科目
         {
           method: 'PUT',
-          path: '/training/lessons',
+          path: `${API_PATH}/training/lessons`,
           body: JSON.stringify([
             {
               id: 111,
@@ -86,12 +82,10 @@ import { API_URL, RUN_SPEC } from './_env';
             },
           ]),
         },
-        // 排課
-
         // 刪除證書類別
         {
           method: 'DELETE',
-          path: '/training/certifications/categories/',
+          path: `${API_PATH}/training/certifications/categories/`,
           body: JSON.stringify([71]),
         },
       ],

@@ -1,26 +1,22 @@
 import autocannon from 'autocannon';
-import axios from 'axios';
 
 import { report } from '../_utils';
-import { API_URL, RUN_SPEC } from './_env';
+import { API_URL, API_PATH, RUN_SPEC, HEADERS_OPTS, LOGIN_FUNCS } from './_env';
 
 (async () => {
-  const login = await axios.post(`${API_URL}/permissions/login`, {
-    userName: 'admin',
-    password: 'test',
-  });
+  const token = await LOGIN_FUNCS.EHS();
 
   await autocannon(
     {
       ...RUN_SPEC,
       title: 'certificate',
       url: API_URL,
-      headers: { token: login.data.DATA.token },
+      headers: { ...HEADERS_OPTS, token },
       requests: [
         // 新增證書
         {
           method: 'POST',
-          path: '/training/certifications',
+          path: `${API_PATH}/training/certifications`,
           body: JSON.stringify({
             certificationName: 'test',
             certificationNumber: 'AAA-1234',
@@ -43,7 +39,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 檢視證書
         {
           method: 'POST',
-          path: '/training/certifications/list/latest',
+          path: `${API_PATH}/training/certifications/list/latest`,
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 50 },
             queryCriterias: [
@@ -61,7 +57,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 編輯證書
         {
           method: 'PUT',
-          path: '/training/certifications',
+          path: `${API_PATH}/training/certifications`,
           body: JSON.stringify({
             id: 65,
             certificationName: '乙級化學技術士',
@@ -80,7 +76,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 刪除證書
         {
           method: 'DELETE',
-          path: '/training/certifications',
+          path: `${API_PATH}/training/certifications`,
           body: JSON.stringify([120]),
         },
       ],

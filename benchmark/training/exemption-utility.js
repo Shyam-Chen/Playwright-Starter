@@ -1,26 +1,22 @@
 import autocannon from 'autocannon';
-import axios from 'axios';
 
 import { report } from '../_utils';
-import { API_URL, RUN_SPEC } from './_env';
+import { API_URL, API_PATH, RUN_SPEC, HEADERS_OPTS, LOGIN_FUNCS } from './_env';
 
 (async () => {
-  const login = await axios.post(`${API_URL}/permissions/login`, {
-    userName: 'admin',
-    password: 'test',
-  });
+  const token = await LOGIN_FUNCS.EHS();
 
   await autocannon(
     {
       ...RUN_SPEC,
       title: 'exemption-utility',
       url: API_URL,
-      headers: { token: login.data.DATA.token },
+      headers: { ...HEADERS_OPTS, token },
       requests: [
         // 新增豁免
         {
           method: 'POST',
-          path: 'training/exemptions',
+          path: `${API_PATH}/training/exemptions`,
           body: JSON.stringify([
             {
               reason: '_TRAINING_AI_1',
@@ -34,7 +30,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 搜尋豁免
         {
           method: 'POST',
-          path: 'training/exemptions/list',
+          path: `${API_PATH}/training/exemptions/list`,
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryOrderBies: [{ columnName: 'id', orderType: 'asc' }],
@@ -73,14 +69,14 @@ import { API_URL, RUN_SPEC } from './_env';
         // 編輯豁免
         {
           method: 'PUT',
-          path: '/training/exemptions',
+          path: `${API_PATH}/training/exemptions`,
           body: JSON.stringify([
             {
               id: 4,
               reason: '_TRAINING_AI_2',
               startDtm: '2019-07-04T16:00:00.000Z',
               endDtm: '2019-12-26T16:00:00.000Z',
-              comment: '休息    ',
+              comment: '休息',
               employeeId: '10',
             },
           ]),
@@ -88,7 +84,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 刪除豁免
         {
           method: 'DELETE',
-          path: '/training/exemptions',
+          path: `${API_PATH}/training/exemptions`,
           body: JSON.stringify([6]),
         },
       ],

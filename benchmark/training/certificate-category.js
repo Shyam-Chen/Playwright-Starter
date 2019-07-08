@@ -1,26 +1,22 @@
 import autocannon from 'autocannon';
-import axios from 'axios';
 
 import { report } from '../_utils';
-import { API_URL, RUN_SPEC } from './_env';
+import { API_URL, API_PATH, RUN_SPEC, HEADERS_OPTS, LOGIN_FUNCS } from './_env';
 
 (async () => {
-  const login = await axios.post(`${API_URL}/permissions/login`, {
-    userName: 'admin',
-    password: 'test',
-  });
+  const token = await LOGIN_FUNCS.EHS();
 
   await autocannon(
     {
       ...RUN_SPEC,
       title: 'certificate-category',
       url: API_URL,
-      headers: { token: login.data.DATA.token },
+      headers: { ...HEADERS_OPTS, token },
       requests: [
         // 新增證書類別
         {
           method: 'POST',
-          path: '/training/certifications/categories/list',
+          path: `${API_PATH}/training/certifications/categories/list`,
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryCriterias: [],
@@ -30,7 +26,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 搜尋證書類別
         {
           method: 'POST',
-          path: '/training/certifications/categories/list',
+          path: `${API_PATH}/training/certifications/categories/list`,
           body: JSON.stringify({
             pagingTool: { currentPage: 1, pageSize: 10 },
             queryCriterias: [
@@ -69,7 +65,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 編輯證書類別
         {
           method: 'PUT',
-          path: '/training/certifications/categories/',
+          path: `${API_PATH}/training/certifications/categories/`,
           body: JSON.stringify({
             id: 78,
             companyId: 499,
@@ -85,7 +81,7 @@ import { API_URL, RUN_SPEC } from './_env';
         // 刪除證書類別
         {
           method: 'DELETE',
-          path: '/training/certifications/categories/',
+          path: `${API_PATH}/training/certifications/categories/`,
           body: JSON.stringify([71]),
         },
       ],
