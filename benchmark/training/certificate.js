@@ -1,86 +1,70 @@
-import autocannon from 'autocannon';
+import { API_PATH } from './_env';
 
-import { report } from '../_utils';
-import { API_URL, API_PATH, RUN_SPEC, HEADERS_OPTS, LOGIN_FUNCS } from './_env';
-
-(async () => {
-  const token = await LOGIN_FUNCS.EHS();
-
-  await autocannon(
-    {
-      ...RUN_SPEC,
-      title: 'certificate',
-      url: API_URL,
-      headers: { ...HEADERS_OPTS, token },
-      requests: [
-        // 新增證書
+export default [
+  // 新增證書
+  {
+    method: 'POST',
+    path: `${API_PATH}/training/certifications`,
+    body: JSON.stringify({
+      certificationName: 'test',
+      certificationNumber: 'AAA-1234',
+      licenseIssuingAgency: '資訊處',
+      renewalPeriod: 3,
+      renewalPeriodUnit: '_SYS_AW_5',
+      attachments: [
+        { fileId: '1560' },
+        { fileId: '1561' },
+        { fileId: '1562' },
+        { fileId: '1563' },
+      ],
+      employeeId: '176',
+      categoryId: 66,
+      accreditationDate: '2019-06-11',
+      activationDate: '2019-06-13',
+      expirationDate: null,
+    }),
+  },
+  // 檢視證書
+  {
+    method: 'POST',
+    path: `${API_PATH}/training/certifications/list/latest`,
+    body: JSON.stringify({
+      pagingTool: { currentPage: 1, pageSize: 50 },
+      queryCriterias: [
         {
-          method: 'POST',
-          path: `${API_PATH}/training/certifications`,
-          body: JSON.stringify({
-            certificationName: 'test',
-            certificationNumber: 'AAA-1234',
-            licenseIssuingAgency: '資訊處',
-            renewalPeriod: 3,
-            renewalPeriodUnit: '_SYS_AW_5',
-            attachments: [
-              { fileId: '1560' },
-              { fileId: '1561' },
-              { fileId: '1562' },
-              { fileId: '1563' },
-            ],
-            employeeId: '176',
-            categoryId: 66,
-            accreditationDate: '2019-06-11',
-            activationDate: '2019-06-13',
-            expirationDate: null,
-          }),
-        },
-        // 檢視證書
-        {
-          method: 'POST',
-          path: `${API_PATH}/training/certifications/list/latest`,
-          body: JSON.stringify({
-            pagingTool: { currentPage: 1, pageSize: 50 },
-            queryCriterias: [
-              {
-                connection: 'and',
-                key: 'code',
-                condition: 'like',
-                value: '資訊倫理',
-                isValueADigital: false,
-              },
-            ],
-            queryOrderBies: [{ columnName: 'code', orderType: 'desc' }],
-          }),
-        },
-        // 編輯證書
-        {
-          method: 'PUT',
-          path: `${API_PATH}/training/certifications`,
-          body: JSON.stringify({
-            id: 65,
-            certificationName: '乙級化學技術士',
-            certificationNumber: '00QAIR01',
-            licenseIssuingAgency: '勞動部勞動力發展署技能檢定中心',
-            renewalPeriod: 1,
-            renewalPeriodUnit: '_SYS_AW_5',
-            attachments: [{ fileId: '1585' }],
-            employeeId: '151',
-            categoryId: 40,
-            accreditationDate: '2018-04-10',
-            activationDate: '2019-06-21',
-            expirationDate: '2019-07-20',
-          }),
-        },
-        // 刪除證書
-        {
-          method: 'DELETE',
-          path: `${API_PATH}/training/certifications`,
-          body: JSON.stringify([120]),
+          connection: 'and',
+          key: 'code',
+          condition: 'like',
+          value: '資訊倫理',
+          isValueADigital: false,
         },
       ],
-    },
-    report,
-  );
-})();
+      queryOrderBies: [{ columnName: 'code', orderType: 'desc' }],
+    }),
+  },
+  // 編輯證書
+  {
+    method: 'PUT',
+    path: `${API_PATH}/training/certifications`,
+    body: JSON.stringify({
+      id: 65,
+      certificationName: '乙級化學技術士',
+      certificationNumber: '00QAIR01',
+      licenseIssuingAgency: '勞動部勞動力發展署技能檢定中心',
+      renewalPeriod: 1,
+      renewalPeriodUnit: '_SYS_AW_5',
+      attachments: [{ fileId: '1585' }],
+      employeeId: '151',
+      categoryId: 40,
+      accreditationDate: '2018-04-10',
+      activationDate: '2019-06-21',
+      expirationDate: '2019-07-20',
+    }),
+  },
+  // 刪除證書
+  {
+    method: 'DELETE',
+    path: `${API_PATH}/training/certifications`,
+    body: JSON.stringify([120]),
+  },
+];

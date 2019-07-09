@@ -13,10 +13,19 @@ export const HEADERS_OPTS = {
 };
 
 export const LOGIN_FUNCS = {
-  async EHS() {
-    const login = await axios.post(`${API_URL + API_PATH}/permissions/login`, {
+  url: `${API_URL + API_PATH}/permissions/login`,
+  async Admin() {
+    const login = await axios.post(this.url, {
       userName: '858142',
       password: '858142',
+    });
+
+    return login.data.DATA.token;
+  },
+  async User() {
+    const login = await axios.post(this.url, {
+      userName: '336716',
+      password: '336716',
     });
 
     return login.data.DATA.token;
