@@ -19,7 +19,7 @@ export default [
       },
     ]),
   },
-  // 開設課程 - 課程資訊
+  // 開設課程 - 課程資訊 (選擇科目, 編輯)
   {
     method: 'PUT',
     path: `${API_PATH}/training/classes`,
@@ -126,136 +126,6 @@ export default [
     method: 'POST',
     path: `${API_PATH}/training/classes/60/cancel`,
     body: JSON.stringify({}),
-  },
-  // 編輯課程 - 選擇科目
-  {
-    method: 'PUT',
-    path: `${API_PATH}/training/classes`,
-    body: JSON.stringify({
-      classDTOs: [
-        {
-          id: 51,
-          companyId: 269,
-          lessonId: 16,
-          name: '即將開始',
-          instructorId: 52,
-          comment: '1',
-          systemFileInfoDTOs: [
-            {
-              id: 103,
-              linkType: '_SYS_D_J',
-              foreighKey: 51,
-              foreighDTO: null,
-              fileId: 51,
-              fileDTO: {
-                id: '51',
-                path:
-                  'http://3.112.250.104/upload/04e2c8e8-dc9f-4eb2-a47d-bd5221171a0f.png',
-                name: '04e2c8e8-dc9f-4eb2-a47d-bd5221171a0f.png',
-                type: '.png',
-                description: null,
-                tags: null,
-                size: 280782,
-                originalName: 'Screen Shot 2019-07-02 at 4.40.08 PM.png',
-                remoteFullPath: null,
-              },
-              type: '.png',
-              language: null,
-              country: null,
-              status: null,
-              display: null,
-              externalPublished: null,
-              description: null,
-              comment: null,
-              issuedDate: null,
-              revisionDate: null,
-              lastModifiedDtm: 1562639622000,
-              lastModifiedBy: 144,
-              uploadedTime: null,
-              uploadedBy: null,
-              org_ids: null,
-              edit_disabled: null,
-              orgIds: null,
-            },
-          ],
-          status: '_TRAINING_AG_4',
-          sessions: [
-            {
-              locationId: 8,
-              endDtm: '2019-07-31T03:33:00.000Z',
-              startDtm: '2019-07-31T02:33:00.000Z',
-            },
-          ],
-          needNotify: false,
-        },
-      ],
-      needCheck: true,
-    }),
-  },
-  // 編輯課程 - 課程資訊
-  {
-    method: 'PUT',
-    path: `${API_PATH}/training/classes`,
-    body: JSON.stringify({
-      classDTOs: [
-        {
-          id: 51,
-          companyId: 269,
-          lessonId: 16,
-          name: '即將開始',
-          instructorId: 52,
-          comment: '1',
-          systemFileInfoDTOs: [
-            {
-              id: 103,
-              linkType: '_SYS_D_J',
-              foreighKey: 51,
-              foreighDTO: null,
-              fileId: 51,
-              fileDTO: {
-                id: '51',
-                path:
-                  'http://3.112.250.104/upload/04e2c8e8-dc9f-4eb2-a47d-bd5221171a0f.png',
-                name: '04e2c8e8-dc9f-4eb2-a47d-bd5221171a0f.png',
-                type: '.png',
-                description: null,
-                tags: null,
-                size: 280782,
-                originalName: 'Screen Shot 2019-07-02 at 4.40.08 PM.png',
-                remoteFullPath: null,
-              },
-              type: '.png',
-              language: null,
-              country: null,
-              status: null,
-              display: null,
-              externalPublished: null,
-              description: null,
-              comment: null,
-              issuedDate: null,
-              revisionDate: null,
-              lastModifiedDtm: 1562639622000,
-              lastModifiedBy: 144,
-              uploadedTime: null,
-              uploadedBy: null,
-              org_ids: null,
-              edit_disabled: null,
-              orgIds: null,
-            },
-          ],
-          status: '_TRAINING_AG_4',
-          sessions: [
-            {
-              locationId: 8,
-              endDtm: '2019-07-31T03:37:00.000Z',
-              startDtm: '2019-07-31T02:33:00.000Z',
-            },
-          ],
-          needNotify: false,
-        },
-      ],
-      needCheck: true,
-    }),
   },
   // 更新登入分數
   {
