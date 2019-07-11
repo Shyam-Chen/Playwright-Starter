@@ -1,7 +1,7 @@
 import { API_PATH } from './_env';
 
 export default [
-  // 培訓記錄
+  // 搜尋培訓記錄
   {
     method: 'POST',
     path: `${API_PATH}/training/records/employee/summary`,
@@ -10,12 +10,12 @@ export default [
       queryCriterias: [],
     }),
   },
-  // 員工基本資料
+  // 查看員工基本資料
   {
     method: 'GET',
     path: `${API_PATH}/employees/250`,
   },
-  // 員工培訓記錄
+  // 查看員工培訓記錄（未結束、已結束）
   {
     method: 'POST',
     path: `${API_PATH}/training/records/employee/250`,

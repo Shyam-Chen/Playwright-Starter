@@ -111,7 +111,7 @@ export default [
     path: `${API_PATH}/training/classes/60/live`,
     body: JSON.stringify({ needCheck: true }),
   },
-  // 課程列表
+  // 搜尋課程
   {
     method: 'POST',
     path: `${API_PATH}/training/classes/list`,
@@ -127,7 +127,12 @@ export default [
     path: `${API_PATH}/training/classes/60/cancel`,
     body: JSON.stringify({}),
   },
-  // 更新登入分數
+  // 登錄分數
+  {
+    method: 'GET',
+    path: `${API_PATH}/training/classes/59/attendances`,
+  },
+  // 打分數、勾選出勤
   {
     method: 'PUT',
     path: `${API_PATH}/training/classes/59/attendances`,
@@ -136,13 +141,13 @@ export default [
         id: 224,
         classId: 59,
         employeeId: 49,
-        grade: 50,
+        grade: 55,
         exemptionId: null,
-        participation: false,
+        participation: true,
         comment: null,
         fileIds: [],
         fileDTOs: null,
-        status: '_TRAINING_AH_7',
+        status: '_TRAINING_AH_5',
         employee: {
           id: '49',
           code: '012736',
@@ -227,11 +232,6 @@ export default [
         roster: false,
       },
     ]),
-  },
-  // 登入分數列表
-  {
-    method: 'GET',
-    path: `${API_PATH}/training/classes/59/attendances`,
   },
   // 刪除課程
   {
