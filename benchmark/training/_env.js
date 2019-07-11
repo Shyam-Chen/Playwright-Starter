@@ -6,6 +6,7 @@ export const API_PATH = '/facts_backend-2.6/rest';
 export const RUN_SPEC = {
   connections: 10,
   duration: 10,
+  pipelining: 1,
 };
 
 export const HEADERS_OPTS = {
