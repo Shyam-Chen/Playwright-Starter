@@ -9,7 +9,8 @@
     "api": "jest \"api/.*\\.js$\" --setupTestFrameworkScriptFile=./api/setup-test.js",
     "api:run": "jest --setupTestFrameworkScriptFile=./api/setup-test.js",
     "bench": "node -r esm benchmark/hello-world/hello-world.js",
-    "bench:run": "node -r esm"
+    "bench:run": "node -r esm",
+    "autocannon": "autocannon"
   },
   "repository": {
     "type": "git",
