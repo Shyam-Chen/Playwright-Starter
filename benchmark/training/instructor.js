@@ -70,11 +70,6 @@ export default [
       queryOrderBies: [{ columnName: 'id', orderType: 'desc' }],
     }),
   },
-  // 檢視教師
-  {
-    method: 'GET',
-    path: `${API_PATH}/training/instructors/103`,
-  },
   // 編輯教師
   {
     method: 'PUT',

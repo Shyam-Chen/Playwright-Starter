@@ -48,11 +48,6 @@ export default [
       ],
     }),
   },
-  // 檢視科目
-  {
-    method: 'GET',
-    path: `${API_PATH}/training/lessons/112`,
-  },
   // 編輯科目
   {
     method: 'PUT',
@@ -72,10 +67,10 @@ export default [
       },
     ]),
   },
-  // 刪除證書類別
+  // 刪除科目
   {
     method: 'DELETE',
-    path: `${API_PATH}/training/certifications/categories/`,
-    body: JSON.stringify([71]),
+    path: `${API_PATH}/training/lessons`,
+    body: JSON.stringify([34]),
   },
 ];

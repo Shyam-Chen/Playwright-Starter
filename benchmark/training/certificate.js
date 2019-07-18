@@ -24,22 +24,50 @@ export default [
       expirationDate: null,
     }),
   },
-  // 檢視證書
+  // 搜尋證書
   {
     method: 'POST',
     path: `${API_PATH}/training/certifications/list/latest`,
     body: JSON.stringify({
-      pagingTool: { currentPage: 1, pageSize: 50 },
+      pagingTool: { currentPage: 1, pageSize: 10 },
+      queryOrderBies: [{ columnName: 'employee.code', orderType: 'asc' }],
       queryCriterias: [
         {
           connection: 'and',
-          key: 'code',
+          key: 'org.id',
+          condition: '=',
+          value: '2',
+          isValueADigital: false,
+        },
+        {
+          connection: 'and',
+          key: 'certification.status',
+          condition: '=',
+          value: '_SYS_A9_2',
+          isValueADigital: false,
+        },
+        {
+          connection: 'and',
+          key: 'certification_name',
           condition: 'like',
-          value: '資訊倫理',
+          value: '甲',
+          isValueADigital: false,
+        },
+        {
+          connection: 'or',
+          key: 'certification_number',
+          condition: 'like',
+          value: '甲',
+          isValueADigital: false,
+        },
+        {
+          connection: 'or',
+          key: 'category.code',
+          condition: 'like',
+          value: '甲',
           isValueADigital: false,
         },
       ],
-      queryOrderBies: [{ columnName: 'code', orderType: 'desc' }],
     }),
   },
   // 編輯證書

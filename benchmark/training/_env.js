@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const API_URL = 'http://3.112.250.104:8090';
+export const API_URL = 'http://3.113.93.143';
 export const API_PATH = '/facts_backend-2.6/rest';
 
 export const RUN_SPEC = {
