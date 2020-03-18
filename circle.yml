@@ -1,15 +1,14 @@
 version: 2.1
 
 executors:
-  puppeteer-play:
+  playwright-starter:
     docker:
       - image: circleci/node:10
-    working_directory: ~/Puppeteer-Play
 
 jobs:
 
   test:
-    executor: puppeteer-play
+    executor: playwright-starter
     steps:
       - checkout
       - setup_remote_docker:

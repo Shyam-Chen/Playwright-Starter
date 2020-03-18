@@ -1,4 +1,32 @@
-# Puppeteer Play
+# Playwright Starter
+
+## UIs
+
+* Manual Testing
+
+Chrome / Firefox / Safari
+
+* Automation Testing
+
+[Playwright](https://github.com/microsoft/playwright)
+
+* Benchmark Testing
+
+[Lighthouse](https://github.com/GoogleChrome/lighthouse)
+
+## APIs
+
+* Manual Testing
+
+[Postwoman](https://github.com/liyasthomas/postwoman)
+
+* Automation Testing
+
+[Supertest](https://github.com/visionmedia/supertest) / [WS](https://github.com/websockets/ws)
+
+* Benchmark Testing
+
+[Autocannon](https://github.com/mcollina/autocannon)
 
 ## Getting Started
 
@@ -7,7 +35,7 @@ Follow steps to execute this boilerplate.
 1. Clone this boilerplate
 
 ```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/Puppeteer-Play.git <PROJECT_NAME>
+$ git clone --depth 1 https://github.com/Shyam-Chen/Playwright-Starter.git <PROJECT_NAME>
 $ cd <PROJECT_NAME>
 ```
 
