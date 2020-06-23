@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import { chromium } from 'playwright';
 
 jest.setTimeout(100 * 1000);
 
@@ -8,7 +8,7 @@ global.mobileViewport = { width: 375, height: 667 };
 global.desktopViewport = { width: 1366, height: 768 };
 
 beforeAll(async () => {
-  global.browser = await puppeteer.launch({
+  global.browser = await chromium.launch({
     headless: false,
     slowMo: 80,
     args: ['--no-sandbox'],

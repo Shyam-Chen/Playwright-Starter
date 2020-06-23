@@ -4,7 +4,7 @@
 
 * Manual Testing
 
-Chrome / Firefox / Safari
+Chrome, Edge / Firefox / Safari
 
 * Automation Testing
 

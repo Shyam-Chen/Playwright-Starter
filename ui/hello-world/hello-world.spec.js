@@ -1,9 +1,10 @@
 describe('Hello World', () => {
-  let [page] = [];
+  let [context, page] = [];
 
   beforeAll(async () => {
-    page = await global.browser.newPage();
-    await page.setViewport(global.desktopViewport);
+    context = await global.browser.newContext();
+    page = await context.newPage();
+    // await page.setViewport(global.desktopViewport);
   });
 
   beforeEach(async () => {

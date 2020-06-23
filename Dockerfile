@@ -1,6 +1,6 @@
 FROM node:10
 
-ENV HOME /Puppeteer-Play
+ENV HOME /Playwright-Starter
 
 WORKDIR ${HOME}
 ADD . $HOME
