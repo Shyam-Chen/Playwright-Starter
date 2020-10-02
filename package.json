@@ -9,8 +9,7 @@
     "api": "jest \"api/.*\\.js$\" --setupTestFrameworkScriptFile=./api/setup-test.js",
     "api:run": "jest --setupTestFrameworkScriptFile=./api/setup-test.js",
     "bench": "node -r esm benchmark/hello-world/hello-world.js",
-    "bench:run": "node -r esm",
-    "autocannon": "autocannon"
+    "bench:run": "node -r esm"
   },
   "repository": {
     "type": "git",
@@ -24,7 +23,8 @@
     "cli-table": "^0.3.1",
     "date-fns": "^1.30.1",
     "lighthouse": "^5.1.0",
-    "playwright": "^1.1.1",
+    "mockiavelli": "^1.0.0",
+    "playwright": "^1.4.0",
     "supertest": "^4.0.2"
   },
   "devDependencies": {

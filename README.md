@@ -2,31 +2,15 @@
 
 ## UIs
 
-* Manual Testing
-
-Chrome, Edge / Firefox / Safari
-
-* Automation Testing
-
-[Playwright](https://github.com/microsoft/playwright)
-
-* Benchmark Testing
-
-[Lighthouse](https://github.com/GoogleChrome/lighthouse)
+* Manual Testing: [Chrome](https://www.google.com/chrome/)
+* Automation Testing: [Playwright](https://github.com/microsoft/playwright)
+* Benchmark Testing: [Lighthouse](https://github.com/GoogleChrome/lighthouse)
 
 ## APIs
 
-* Manual Testing
-
-[Postwoman](https://github.com/liyasthomas/postwoman)
-
-* Automation Testing
-
-[Supertest](https://github.com/visionmedia/supertest) / [WS](https://github.com/websockets/ws)
-
-* Benchmark Testing
-
-[Autocannon](https://github.com/mcollina/autocannon)
+* Manual Testing: [Hoppscotch](https://github.com/hoppscotch/hoppscotch)
+* Automation Testing: [SuperTest](https://github.com/visionmedia/supertest)
+* Benchmark Testing: [AutoCannon](https://github.com/mcollina/autocannon)
 
 ## Getting Started
 
