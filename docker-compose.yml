@@ -7,9 +7,4 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - yarn:/home/node/.cache/yarn
     tty: true
-
-volumes:
-  yarn:

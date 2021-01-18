@@ -1,14 +1,14 @@
 # Playwright Starter
 
+:carousel_horse: A boilerplate for end-to-end and automation testing.
+
 ## UIs
 
-* Manual Testing: [Chrome](https://www.google.com/chrome/)
 * Automation Testing: [Playwright](https://github.com/microsoft/playwright)
 * Benchmark Testing: [Lighthouse](https://github.com/GoogleChrome/lighthouse)
 
 ## APIs
 
-* Manual Testing: [Hoppscotch](https://github.com/hoppscotch/hoppscotch)
 * Automation Testing: [SuperTest](https://github.com/visionmedia/supertest)
 * Benchmark Testing: [AutoCannon](https://github.com/mcollina/autocannon)
 
@@ -26,7 +26,7 @@ $ cd <PROJECT_NAME>
 2. Install dependencies
 
 ```bash
-$ yarn install
+$ npm install
 ```
 
 3. Check code quality

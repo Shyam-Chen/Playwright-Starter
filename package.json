@@ -1,7 +1,7 @@
 {
   "name": "playwright-starter",
   "version": "1.0.0",
-  "description": "",
+  "description": "A boilerplate for end-to-end and automation testing.",
   "scripts": {
     "lint": "eslint 'ui/**/*.js' 'api/**/*.js' 'benchmark/**/*.js'",
     "ui": "jest \"ui/.*\\.js$\" --setupTestFrameworkScriptFile=./ui/setup-test.js",
@@ -24,6 +24,7 @@
     "date-fns": "^1.30.1",
     "lighthouse": "^5.1.0",
     "mockiavelli": "^1.0.0",
+    "nock": "^13.0.5",
     "playwright": "^1.4.0",
     "supertest": "^4.0.2"
   },
