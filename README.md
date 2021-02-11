@@ -2,15 +2,23 @@
 
 :carousel_horse: A boilerplate for end-to-end and automation testing.
 
-## UIs
+## GUI Testing
 
-* Automation Testing: [Playwright](https://github.com/microsoft/playwright)
-* Benchmark Testing: [Lighthouse](https://github.com/GoogleChrome/lighthouse)
+Automated web-based graphical user interface testing:
 
-## APIs
+  - Automation Testing: [Playwright](https://github.com/microsoft/playwright)
+    - Specification: `gui/**/*.spec.js`
+  - Benchmark Testing: [Lighthouse](https://github.com/GoogleChrome/lighthouse)
+    - Measurement: `gui/**/*.meas.js`
 
-* Automation Testing: [SuperTest](https://github.com/visionmedia/supertest)
-* Benchmark Testing: [AutoCannon](https://github.com/mcollina/autocannon)
+## API Testing
+
+Automated application programming interface Testing:
+
+  - Automation Testing: [Supertest](https://github.com/visionmedia/supertest)
+    - Specification: `api/**/*.spec.js`
+  - Benchmark Testing: [Autocannon](https://github.com/mcollina/autocannon)
+    - Measurement: `api/**/*.meas.js`
 
 ## Getting Started
 
