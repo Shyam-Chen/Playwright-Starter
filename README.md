@@ -1,71 +1,37 @@
 # Playwright Starter
 
-:carousel_horse: A boilerplate for end-to-end and automation testing.
+:carousel_horse: A boilerplate for Test automation, Playwright, Lighthouse, Autocannon, and TypeScript.
 
 ## GUI Testing
 
 Automated web-based graphical user interface testing:
 
   - Automation Testing: [Playwright](https://github.com/microsoft/playwright)
-    - Specification: `gui/**/*.spec.js`
+    - Specification: `gui/**/*.spec.ts`
   - Benchmark Testing: [Lighthouse](https://github.com/GoogleChrome/lighthouse)
-    - Measurement: `gui/**/*.meas.js`
+    - Measurement: `gui/**/*.meas.ts`
 
 ## API Testing
 
 Automated application programming interface Testing:
 
-  - Automation Testing: [Supertest](https://github.com/visionmedia/supertest)
-    - Specification: `api/**/*.spec.js`
+  - Automation Testing: [Playwright](https://github.com/microsoft/playwright)
+    - Specification: `api/**/*.spec.ts`
   - Benchmark Testing: [Autocannon](https://github.com/mcollina/autocannon)
-    - Measurement: `api/**/*.meas.js`
+    - Measurement: `api/**/*.meas.ts`
 
 ## Getting Started
 
 Follow steps to execute this boilerplate.
 
-1. Clone this boilerplate
+1. Install dependencies
 
 ```bash
-$ git clone --depth 1 https://github.com/Shyam-Chen/Playwright-Starter.git <PROJECT_NAME>
-$ cd <PROJECT_NAME>
+$ pnpm install
 ```
 
-2. Install dependencies
+2. Runs end-to-end tests
 
 ```bash
-$ npm install
-```
-
-3. Check code quality
-
-```bash
-$ yarn lint
-```
-
-4. Runs ui tests
-
-```bash
-$ yarn ui
-
-# Or single execution of the specified file
-$ yarn ui:run ui/hello-world/hello-world.spec.js
-```
-
-5. Runs api tests
-
-```bash
-$ yarn api
-
-# Or single execution of the specified file
-$ yarn api:run api/hello-world/hello-world.spec.js
-```
-
-6. Runs benchmarks
-
-```bash
-$ yarn bench
-
-# Or single execution of the specified file
-$ yarn bench:run benchmark/hello-world/hello-world.js
+$ pnpm e2e
 ```

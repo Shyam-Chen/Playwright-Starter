@@ -1,33 +1,16 @@
 version: 2.1
 
-executors:
-  playwright-starter:
-    docker:
-      - image: circleci/node:10
-
 jobs:
-
   test:
-    executor: playwright-starter
+    docker:
+      - image: cimg/base:stable
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: true
-      - run:
-          name: Combat preparation
-          command: docker-compose up -d default
-      - run:
-          name: Check code quality
-          command: docker-compose exec default yarn lint
-      # - run:
-      #     name: Runs ui tests
-      #     command: docker-compose exec default yarn ui
-      # - run:
-      #     name: Runs api tests
-      #     command: docker-compose exec default yarn api
+      - setup_remote_docker
+      - run: docker-compose up -d ci
+      - run: docker-compose exec ci pnpm e2e
 
 workflows:
-  version: 2
-  e2e-testing:
+  workflow:
     jobs:
       - test
