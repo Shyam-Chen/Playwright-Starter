@@ -1,24 +1,24 @@
 # Playwright Starter
 
-:carousel_horse: A boilerplate for Test automation, Playwright, Lighthouse, Autocannon, and TypeScript.
+:carousel_horse: A boilerplate for test automation using Playwright in TypeScript.
 
-## GUI Testing
+## UI Tests
 
-Automated web-based graphical user interface testing:
+Specification: `ui/**/*.spec.ts`
 
-  - Automation Testing: [Playwright](https://github.com/microsoft/playwright)
-    - Specification: `gui/**/*.spec.ts`
-  - Benchmark Testing: [Lighthouse](https://github.com/GoogleChrome/lighthouse)
-    - Measurement: `gui/**/*.meas.ts`
+`ui/setup` - mock api
 
-## API Testing
+## API Tests
 
-Automated application programming interface Testing:
+Specification: `api/**/*.spec.ts`
 
-  - Automation Testing: [Playwright](https://github.com/microsoft/playwright)
-    - Specification: `api/**/*.spec.ts`
-  - Benchmark Testing: [Autocannon](https://github.com/mcollina/autocannon)
-    - Measurement: `api/**/*.meas.ts`
+`api/setup` - db reset
+
+## Smoke Tests
+
+Specification: `smoke/**/*.spec.ts`
+
+Full Flow (Happy Path / Smoke Test)
 
 ## Getting Started
 
